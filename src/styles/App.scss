@@ -1,19 +1,11 @@
 @import "./core/reset";
 @import "./core/variables";
 
-body {
-  padding: 0;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 .page {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  max-width: 100%;
 }
 
 .header {
@@ -51,6 +43,7 @@ body {
   gap: 10px;
   width: 100%; // Asegura que el contenedor ocupa todo el ancho disponible
   max-width: 600px; // Ajusta el ancho máximo del contenedor
+  margin-top: 50px;
 }
 
 .form-group {
@@ -80,7 +73,6 @@ label {
   color: rgb(30, 30, 30);
 }
 .form__select {
-  margin-inline: 3px;
   font-size: 18px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -96,10 +88,11 @@ label {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Crea un grid de 4 columnas */
-  gap: 20px; /* Espacio entre las tarjetas */
-  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 100%;
   margin-top: 3em;
+  box-sizing: border-box;
 }
 
 .card {
@@ -112,11 +105,14 @@ label {
   padding: 10px;
   font-family: "Grey Qo", system-ui;
   font-weight: 500;
+  width: 200px; /* Establece un ancho fijo o máximo para las tarjetas */
+  max-width: 100%; /* Asegura que no se expandan más allá del contenedor */
 }
 
 .card__img {
   width: 100%;
-  height: auto;
+  height: 300px; /* Establece una altura fija para la imagen */
+  object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin distorsionar */
 }
 
 .card__tittle {
@@ -141,25 +137,19 @@ label {
 
 /* Media query para adaptar el grid a pantallas más pequeñas */
 @media (max-width: 1200px) {
-  .characters {
-    grid-template-columns: repeat(
-      3,
-      1fr
-    ); /* 3 columnas para pantallas medianas */
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 900px) {
-  .characters {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* 2 columnas para pantallas pequeñas */
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 600px) {
-  .characters {
-    grid-template-columns: 1fr; /* 1 columna para pantallas muy pequeñas */
+@media (max-width: 700px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
