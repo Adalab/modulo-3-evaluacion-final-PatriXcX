@@ -1,2 +1,165 @@
-@import './core/reset';
-@import './core/variables';
+@import "./core/reset";
+@import "./core/variables";
+
+body {
+  padding: 0;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #b9b5c3, #3e3f3f);
+  height: 20vh;
+  margin-inline: 20px;
+  padding: 0;
+}
+
+.logo {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; // Ajusta la imagen sin distorsionar
+}
+
+.main {
+  flex-grow: 1;
+
+  justify-content: center; // Centra el contenido horizontalmente
+  align-items: center; // Centra el contenido verticalmente
+  margin: 0;
+  padding: 10px 20px 20px 20px;
+  background-color: #f5c73d;
+  margin-inline: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%; // Asegura que el contenedor ocupa todo el ancho disponible
+  max-width: 600px; // Ajusta el ancho máximo del contenedor
+}
+
+.form-group {
+  display: flex; // Alinea el label y el input horizontalmente
+  align-items: center; // Alinea verticalmente en el centro
+}
+
+label {
+  margin-right: 10px; // Espacio entre el label y el input
+
+  white-space: nowrap; // Evita que el texto del label se ajuste a una nueva línea
+  width: 200px; // Ajusta el ancho del label para mantener una alineación consistente
+  font-size: 30px;
+  font-family: "Grey Qo", system-ui;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.form__input-text {
+  padding: 8px;
+  font-size: 18px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  flex: 1; // El input se expande para ocupar el espacio restante
+  height: 20px; // Ajusta la altura para que coincida con el label
+  background-color: #d9d4d4;
+  color: rgb(30, 30, 30);
+}
+.form__select {
+  margin-inline: 3px;
+  font-size: 18px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  flex: 1; // El input/select se expande para ocupar el espacio restante
+  height: 34px;
+  color: rgb(30, 30, 30);
+  background-color: #d9d4d4;
+  text-align: center;
+}
+.form__select:focus {
+  background-color: #d9d4d4; // Color de fondo gris más claro al enfocar
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Crea un grid de 4 columnas */
+  gap: 20px; /* Espacio entre las tarjetas */
+  width: 100%;
+  margin-top: 3em;
+}
+
+.card {
+  background-color: #faf3f3;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  font-family: "Grey Qo", system-ui;
+  font-weight: 500;
+}
+
+.card__img {
+  width: 100%;
+  height: auto;
+}
+
+.card__tittle {
+  font-family: "Grey Qo";
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: -5px;
+}
+
+.card__specie {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra el contenido verticalmente */
+  font-size: 30px;
+  font-weight: 500;
+  color: black;
+  border-radius: 50%;
+  background-color: #d9d4d4;
+  height: 40px;
+  width: 100%;
+}
+
+/* Media query para adaptar el grid a pantallas más pequeñas */
+@media (max-width: 1200px) {
+  .characters {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* 3 columnas para pantallas medianas */
+  }
+}
+
+@media (max-width: 900px) {
+  .characters {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 columnas para pantallas pequeñas */
+  }
+}
+
+@media (max-width: 600px) {
+  .characters {
+    grid-template-columns: 1fr; /* 1 columna para pantallas muy pequeñas */
+  }
+}
