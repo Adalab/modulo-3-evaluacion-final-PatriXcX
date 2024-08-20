@@ -1,5 +1,8 @@
 
 import PropTypes from 'prop-types';
+import CharactersCard from './CharactersCard';
+
+
 function CharacterList({characters}) {
 
     const getPlaceholderImage = (name) => {
@@ -13,15 +16,12 @@ function CharacterList({characters}) {
 
 
             {characters.map((character) => (
-                <li key={character.id} className="card">
-
-                        <img src={character.image || getPlaceholderImage(character.name)} alt={character.name} className="card__img" />
-                    <div className="card__info">
-                        <h2 className="card__title">{character.name}</h2>
-                        <p className="card__specie">{character.species}</p>
-                    </div>
-
-            </li>))}
+                <CharactersCard 
+                key={character.id} 
+                character={character} 
+                getPlaceholderImage={getPlaceholderImage} 
+            />
+            ))}
 
 
 

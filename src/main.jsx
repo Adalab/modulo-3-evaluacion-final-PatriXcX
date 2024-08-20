@@ -4,8 +4,10 @@ import App from './components/App.jsx'
 import { HashRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  
   <React.StrictMode>
-    <HashRouter/>
+    <HashRouter>
     <App />
+    </HashRouter>
   </React.StrictMode>,
 )

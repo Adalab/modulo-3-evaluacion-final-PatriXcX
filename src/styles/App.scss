@@ -14,7 +14,6 @@
   align-items: center;
   background: linear-gradient(135deg, #b9b5c3, #3e3f3f);
   height: 20vh;
-  margin-inline: 20px;
   padding: 0;
 }
 
@@ -26,23 +25,18 @@
 
 .main {
   flex-grow: 1;
-
   justify-content: center; // Centra el contenido horizontalmente
   align-items: center; // Centra el contenido verticalmente
   margin: 0;
-  padding: 10px 20px 20px 20px;
   background-color: #f5c73d;
-  margin-inline: 20px;
   display: flex;
   flex-direction: column;
 }
 
 .form__container {
-  display: flex;
-  flex-direction: column;
   gap: 10px;
   width: 100%; // Asegura que el contenedor ocupa todo el ancho disponible
-  max-width: 600px; // Ajusta el ancho máximo del contenedor
+  max-width: 400px; // Ajusta el ancho máximo del contenedor
   margin-top: 50px;
 }
 
@@ -53,7 +47,6 @@
 
 label {
   margin-right: 10px; // Espacio entre el label y el input
-
   white-space: nowrap; // Evita que el texto del label se ajuste a una nueva línea
   width: 200px; // Ajusta el ancho del label para mantener una alineación consistente
   font-size: 30px;
@@ -63,7 +56,7 @@ label {
 }
 
 .form__input-text {
-  padding: 8px;
+  padding: 15px;
   font-size: 18px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -71,6 +64,9 @@ label {
   height: 20px; // Ajusta la altura para que coincida con el label
   background-color: #d9d4d4;
   color: rgb(30, 30, 30);
+  width: 100%;
+  max-width: 600px; /* Set a max-width for the section */
+  box-sizing: border-box;
 }
 .form__select {
   font-size: 18px;
@@ -86,13 +82,20 @@ label {
   background-color: #d9d4d4; // Color de fondo gris más claro al enfocar
 }
 
-.cards {
+.characters {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 100%;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 0 20px; /* Añade espacio interno a los lados para evitar que el contenido toque los bordes */
+  box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho total */
+}
+
+.cards {
+  gap: 10px;
   margin-top: 3em;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
 }
 
 .card {
@@ -105,8 +108,8 @@ label {
   padding: 10px;
   font-family: "Grey Qo", system-ui;
   font-weight: 500;
-  width: 200px; /* Establece un ancho fijo o máximo para las tarjetas */
-  max-width: 100%; /* Asegura que no se expandan más allá del contenedor */
+  width: 200px;
+  max-width: 100%;
 }
 
 .card__img {
@@ -134,22 +137,29 @@ label {
   height: 40px;
   width: 100%;
 }
+.card__link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Media query para adaptar el grid a pantallas más pequeñas */
-@media (max-width: 1200px) {
+@media (max-width: 2000px) {
   .cards {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .cards {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 700px) {
   .cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
