@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
-function CharactersCard({ character, getPlaceholderImage }) {
+import { getPlaceholderImage } from "../../utils/detailBackupImages";
+import { translateSpecies } from "../../utils/translations";
+function CharactersCard({ character }) {
   return (
     <li className="card">
       <Link to={`/characters/${character.id}`} className="card__link">
@@ -12,7 +13,7 @@ function CharactersCard({ character, getPlaceholderImage }) {
         />
         <div className="card__info">
           <h2 className="card__tittle">{character.name}</h2>
-          <p className="card__specie">{character.species}</p>
+          <p className="card__specie">{translateSpecies(character.species)}</p>
         </div>
       </Link>
     </li>
@@ -21,7 +22,6 @@ function CharactersCard({ character, getPlaceholderImage }) {
 
 CharactersCard.propTypes = {
   character: PropTypes.object.isRequired,
-  getPlaceholderImage: PropTypes.func.isRequired,
 };
 
 export default CharactersCard;
