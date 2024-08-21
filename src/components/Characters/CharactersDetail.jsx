@@ -14,17 +14,20 @@ function CharactersDetail({ findCharacter }) {
   }
 
   return (
-    <div className="card">
+    <div className="card__link__info">
       <img src={characterToShow.image} alt={characterToShow.name} />
-      <div>
-        <p>Nombre: {characterToShow.name}</p>
-        <p>Estatus: {characterToShow.alive ? "Vivo" : "Muerto"}</p>
-        <p>Especie: {characterToShow.species}</p>
-        <p>Género: {characterToShow.gender}</p>
-        <p>Casa: {characterToShow.house || "Desconocida"}</p>
+      <div className="card__link__details">
+        <p className="card__link__text"> {characterToShow.name}</p>
+        <p> Género: {characterToShow.gender}</p>
+        <p> Estatus: {characterToShow.alive ? "Vivo" : "Muerto"}</p>
+        <p> Especie: {characterToShow.species}</p>
+
+        <p> Casa: {characterToShow.house}</p>
       </div>
       <div>
-        <Link to="/">Volver</Link>
+        <Link to="/" className="card__link__Btn">
+          Volver
+        </Link>
       </div>
     </div>
   );

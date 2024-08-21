@@ -34,39 +34,42 @@
 }
 
 .form__container {
-  gap: 10px;
   width: 100%; // Asegura que el contenedor ocupa todo el ancho disponible
   max-width: 400px; // Ajusta el ancho máximo del contenedor
-  margin-top: 50px;
+  margin-top: 30px;
+  justify-content: center;
 }
 
 .form-group {
   display: flex; // Alinea el label y el input horizontalmente
+  flex-direction: column;
   align-items: center; // Alinea verticalmente en el centro
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 label {
-  margin-right: 10px; // Espacio entre el label y el input
   white-space: nowrap; // Evita que el texto del label se ajuste a una nueva línea
-  width: 200px; // Ajusta el ancho del label para mantener una alineación consistente
+  width: 300px; // Ajusta el ancho del label para mantener una alineación consistente
   font-size: 30px;
   font-family: "Grey Qo", system-ui;
   font-weight: 600;
   font-style: normal;
+  margin-top: 20px;
 }
 
 .form__input-text {
-  padding: 15px;
   font-size: 18px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  flex: 1; // El input se expande para ocupar el espacio restante
-  height: 20px; // Ajusta la altura para que coincida con el label
+  flex: 1;
+  height: 15px;
   background-color: #d9d4d4;
   color: rgb(30, 30, 30);
-  width: 100%;
-  max-width: 600px; /* Set a max-width for the section */
+  width: 200px;
+  max-width: 300px; /* Set a max-width for the section */
   box-sizing: border-box;
+  height: 34px;
 }
 .form__select {
   font-size: 18px;
@@ -77,6 +80,8 @@ label {
   color: rgb(30, 30, 30);
   background-color: #d9d4d4;
   text-align: center;
+  margin-top: 5px;
+  max-width: 200px;
 }
 .form__select:focus {
   background-color: #d9d4d4; // Color de fondo gris más claro al enfocar
@@ -94,6 +99,7 @@ label {
 .cards {
   gap: 10px;
   margin-top: 3em;
+
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 3fr));
 }
@@ -108,21 +114,22 @@ label {
   padding: 10px;
   font-family: "Grey Qo", system-ui;
   font-weight: 500;
-  width: 200px;
-  max-width: 100%;
+  text-decoration: none;
 }
 
 .card__img {
   width: 100%;
-  height: 300px; /* Establece una altura fija para la imagen */
+  height: 230px; /* Establece una altura fija para la imagen */
   object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin distorsionar */
+  border-radius: 6px;
+  margin-bottom: 8px;
 }
-
 .card__tittle {
-  font-family: "Grey Qo";
-  font-weight: 600;
-  font-size: 40px;
-  margin-top: -5px;
+  font-size: 30px;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: #000;
 }
 
 .card__specie {
@@ -136,16 +143,47 @@ label {
   background-color: #d9d4d4;
   height: 40px;
   width: 100%;
-}
-.card__link {
   text-decoration: none;
-  color: inherit;
+}
+
+.card__link__info {
+  background-color: #faf3f3;
+  border-radius: 8px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 550;
+  font-family: "Grey Qo", system-ui;
+  margin-right: 20px;
+  text-decoration: none;
 }
 
-/* Media query para adaptar el grid a pantallas más pequeñas */
+.card__link__details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card__link__text {
+  font-size: 50px;
+  font-weight: 600;
+  padding-inline: 20px;
+}
+
+.card__link__Btn {
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 20px;
+  background-color: #d9d4d4;
+  color: #000;
+  border-radius: 80px;
+  display: inline-block;
+  font-weight: 600;
+}
 
 @media (min-width: 700px) {
   .cards {
@@ -157,10 +195,23 @@ label {
   .cards {
     grid-template-columns: repeat(3, 1fr);
   }
-}
 
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 500px;
+  }
+}
 @media (min-width: 1200px) {
   .cards {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 700px;
   }
 }
