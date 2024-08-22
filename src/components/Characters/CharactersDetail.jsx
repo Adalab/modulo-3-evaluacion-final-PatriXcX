@@ -10,10 +10,10 @@ function CharactersDetail({ findCharacter }) {
   const characterToShow = findCharacter(params.id);
   if (characterToShow === undefined) {
     return (
-      <div>
-        <h2>Personaje no encontrado</h2>
+      <div className="characternotfound">
+        <h2 className="characternotfound">Personaje no encontrado &#128169;</h2>
         <div>
-          <Link to="/" className="card__link__Btn">
+          <Link to="/" className="card__link__Btn characternotfound__Volver">
             Volver
           </Link>
         </div>
@@ -24,6 +24,7 @@ function CharactersDetail({ findCharacter }) {
   return (
     <div className="card__link__info">
       <img
+        className="card__link__info__img"
         src={characterToShow.image || getPlaceholderImage(characterToShow.name)}
         alt={characterToShow.name}
       />
