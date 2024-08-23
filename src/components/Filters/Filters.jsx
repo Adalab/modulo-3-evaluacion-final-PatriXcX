@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import FilterName from "./FilterName";
 import FilterHouse from "./FilterHouse";
+import FilterSpecies from "./FilterSpecies";
 
 function Filters({
   filterName,

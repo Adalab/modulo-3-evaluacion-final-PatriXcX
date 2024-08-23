@@ -16,6 +16,8 @@ export const translateSpecies = (species) => {
     return "Semi-gigante";
   } else if (species === "werewolf") {
     return "Hombre-lobo";
+  } else if (species === "ghost") {
+    return "Fantasma";
   } else {
     return "Otro";
   }
